@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="popcorn" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=203.158.131.68;Initial Catalog=popcorn;Persist Security Info=True;User ID=bunsit" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="popcornConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="Users">
+      <Column Name="GuidID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="Users_Updates" Member="Updates" ThisKey="GuidID" OtherKey="GuidID" Type="Updates" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Updates" Member="Updates">
+    <Type Name="Updates">
+      <Column Name="ID_Update" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GuidID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ID_Admins" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Update_Time" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ID_Moives" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="Users_Updates" Member="Users" ThisKey="GuidID" OtherKey="GuidID" Type="Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TB_Movies" Member="Movies">
+    <Type Name="Movies">
+      <Column Name="Guid_Movie" AutoSync="Never" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name_Movie" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Type" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ID_Rate" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Date_Movie" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ID_Caster" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ID_Director" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ID_Review_Masters" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ID_Update" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ID_Review_Users" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Trialer" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Picture_Movie" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Detail" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
